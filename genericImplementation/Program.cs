@@ -10,7 +10,7 @@ var spiritDietyGuardian = new SpiritDietyGuardian()
     Skill = "Immunity",
     SpecialAttack = "Draco Distortion Void",
     UltimateAttack = "Draco Void Meteor",
-    FinalMove = "Quantum Void",
+    MegaAttack = "Quantum Void",
     HeightInFEET = 13,
     WeightInLBS = 15000,
     Species = "Mythical Dragon",
@@ -21,6 +21,9 @@ var spiritDietyGuardian = new SpiritDietyGuardian()
 var helper = new DietyHelper<SpiritDietyGuardian>(spiritDietyGuardian);
 
 helper.Print();
+helper.ImplementAttack();
+helper.SRankAtk();
+helper.SpAbility();
 
 T DietyGuardianFactory<T>(string dietyGuardianName) where T : DietyGuardian, new()
 {
@@ -31,3 +34,7 @@ T DietyGuardianFactory<T>(string dietyGuardianName) where T : DietyGuardian, new
 
 var samurai = DietyGuardianFactory<Samurai>("Sarematouji");
 
+void MegaSAttack<T>(T inputObject) where T : FinalMove
+{
+    inputObject.MegaSAttack();
+}
