@@ -1,47 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 
-namespace genericImplementation {
-   class testGenericProgram
-    {
-       static void Swap<T>(ref T lhs, ref T rhs)
-        {
-            T temp;
-            temp = lhs;
-            lhs = rhs;
-            rhs = temp;
-        }
-        static void Main(string[] args)
-        {
-            int a, b;
-            char c, d;
-            a = 10;
-            b = 20;
-            c = 'I';
-            d = 'V';
+var spiritDietyGuardian = new SpiritDietyGuardian()
+{
+    Name = "Dragsolgalio",
+    Level = 340,
+    Health = 800,
+    Dmg = 700,
+    Ability = "Gravity Void",
+    Skill = "Immunity",
+    SpecialAttack = "Draco Distortion Void",
+    UltimateAttack = "Draco Void Meteor",
+    FinalMove = "Quantum Void",
+    HeightInFEET = 13,
+    WeightInLBS = 15000,
+    Species = "Mythical Dragon",
+    Origin = "UnKnown",
+    Description = "Origins not known, some same it appear through a void, some say the legends god back to where it was conceaved along with the universe."
+};
 
-            //display values before swap:
-            Console.WriteLine("Int values before calling swap:");
-            Console.WriteLine("a = {0}, b = {1}", a, b);
-            Console.WriteLine("Char values before calling swap:");
-            Console.WriteLine("c = {0}, d = {1}", c, d);
+var helper = new DietyHelper<SpiritDietyGuardian>(spiritDietyGuardian);
 
-            //call swap
-            Swap<int>(ref a, ref b);
-            Swap<char>(ref c, ref d);
+helper.Print();
 
-            //display values after swap:
-            Console.WriteLine("Int values after calling swap:");
-            Console.WriteLine("a = {0}, b = {1}", a, b);
-            Console.WriteLine("Char values after calling swap:");
-            Console.WriteLine("c = {0}, d = {1}", c, d);
-
-            Console.ReadKey();
-        }
-      
-        staic void Combined<T>(ref T )
-    }
-
+T DietyGuardianFactory<T>(string dietyGuardianName) where T : DietyGuardian, new()
+{
+    T newDietyGaurdian = new T();
+    newDietyGaurdian.Name = dietyGuardianName;
+    return newDietyGaurdian;
 }
 
+var samurai = DietyGuardianFactory<Samurai>("Sarematouji");
 
